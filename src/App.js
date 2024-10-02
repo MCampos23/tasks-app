@@ -1,11 +1,14 @@
 import './App.css';
 import SideBar from './Components/SideBar';
+import NoProject from './Components/NoProject';
 
 function App() {
   return (
-    <div className="App">
+    <main className='h-screen my-8'>
       <SideBar />
-    </div>
+      
+
+    </main>
   );
 }
 

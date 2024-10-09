@@ -9,14 +9,7 @@ function App() {
     selectedProjectId: undefined,
     projects: []
   })
-
-  function handleCreateProject() {
-    setProjectsState((prevState) => ({
-      ...prevState,
-      selectedProjectId: null
-    }))
-  }
-
+  
   function handleAddProject(projectData) {
     const projectId = Math.random()
     setProjectsState((prevState) => {
@@ -24,11 +17,27 @@ function App() {
         ...projectData,
         id: projectId
       };
-
-      return{
+      
+      return {
         ...prevState,
         selectedProjectId: undefined,
         projects: [...prevState.projects, newProject]
+      }
+    })
+  } 
+ 
+  function handleCreateProject() {
+    setProjectsState((prevState) => ({
+      ...prevState,
+      selectedProjectId: null
+    }))
+  }
+
+  function handleCancel() {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        selectedProjectId: undefined,
       }
     })
   }
@@ -38,7 +47,10 @@ function App() {
   if (projectsState.selectedProjectId === undefined) {
     content = <NoProjectSelected handleCreateProject={handleCreateProject} />
   } else if (projectsState.selectedProjectId === null) {
-    content = <NewProject addProject={handleAddProject}/>
+    content = <NewProject 
+    addProject={handleAddProject} 
+    onCancel={handleCancel}
+    />
   }
 
   return (

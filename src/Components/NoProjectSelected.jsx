@@ -16,7 +16,7 @@ export default function NoProjectSelected({handleCreateProject}) {
             </h2>
             <p className="text-stone-400 mb-4">Select a project or get started with a new one</p>
             <p className="mt-8">
-                <Button onClick={handleCreateProject} text={'Create new project'}/>
+                <Button onClick={handleCreateProject}>Create new project</Button>
             </p>
         </div>
     )

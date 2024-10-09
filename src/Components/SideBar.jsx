@@ -1,6 +1,6 @@
 import Button from "./Button";
 
-export default function SideBar({ handleCreateProject }){
+export default function SideBar({ handleCreateProject, projects }){
   
 
     return(
@@ -8,9 +8,15 @@ export default function SideBar({ handleCreateProject }){
             <h2 className="mb-8 font-bold md:text-xl text-stone-200 ">YOUR PROJECTS</h2>
             <Button onClick={handleCreateProject} text={'+ Add project'}/>
             <div>
-                <ul>
-                    <li className="p-2 text-gray-300 hover:bg-gray-400 hover:text-gray-200 hover:cursor-pointer rounded-l">Learning React</li>
-                    <li className="p-2 text-gray-300 hover:bg-gray-400 hover:text-gray-200 hover:cursor-pointer rounded-l">Mastering React</li>
+                <ul className="mt-8">
+                    {projects.map((project) =>(
+                        <li key={project.id}>
+                            <button className="w-full text-left px-2 py-1 rounded-sm my-1 text-stone-400 hover:text-stone-200 hover:bg-stone-800">
+                            {project.title}
+                            </button>
+                        </li>
+                    ))}
+              
                 </ul>
             </div>
         </aside>

@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/tasks-app/static/css/main.aae79447.css",
+    "main.js": "/tasks-app/static/js/main.d40b1dae.js",
+    "static/js/453.47591c59.chunk.js": "/tasks-app/static/js/453.47591c59.chunk.js",
+    "static/media/ilustracion-concepto-planificacion-proyectos_114360-542.avif": "/tasks-app/static/media/ilustracion-concepto-planificacion-proyectos_114360-542.35b71441775555ac1108.avif",
+    "index.html": "/tasks-app/index.html",
+    "main.aae79447.css.map": "/tasks-app/static/css/main.aae79447.css.map",
+    "main.d40b1dae.js.map": "/tasks-app/static/js/main.d40b1dae.js.map",
+    "453.47591c59.chunk.js.map": "/tasks-app/static/js/453.47591c59.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aae79447.css",
+    "static/js/main.d40b1dae.js"
+  ]
+}

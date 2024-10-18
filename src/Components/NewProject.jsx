@@ -1,9 +1,12 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
+import { TasksContext } from "../store/tasks-context.jsx";
 
 import Input from "./Input.jsx";
 import Modal from "./Modal.jsx";
 
-export default function NewProject({ addProject, onCancel }) {
+export default function NewProject() {
+  const { addProject, cancel } = useContext(TasksContext);
+
   const modal = useRef();
 
   const titleInput = useRef(null);
@@ -42,7 +45,7 @@ export default function NewProject({ addProject, onCancel }) {
         <menu className="flex items-center justify-end gap-4 my-4">
           <li>
             <button 
-            onClick={onCancel}
+            onClick={cancel}
             className="text-stone-800 hover:text-stone-950"
             >
               Cancel

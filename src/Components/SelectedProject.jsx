@@ -1,17 +1,14 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
+import { TasksContext } from "../store/tasks-context.jsx";
 
 import Modal from "./Modal.jsx";
 import Tasks from "./Tasks.jsx";
 
-export default function SelectedProject({
-  projectInfo,
-  onDelete,
-  onAddTask,
-  onDeleteTask,
-  tasks
-}) {
+export default function SelectedProject() {
+  const { projects, selectedProjectId, deleteProject } = useContext(TasksContext)
+  const selectedProject = projects.find(project => project.id === selectedProjectId);
   const modal = useRef();
-  const formattedDate = new Date(projectInfo.dueDate).toLocaleDateString(
+  const formattedDate = new Date(selectedProject.dueDate).toLocaleDateString(
     "en-US",
     {
       year: "numeric",
@@ -30,21 +27,21 @@ export default function SelectedProject({
         <header className="pb-4 mb-4 border-b-2 border-stone-300">
           <div className="flex items-center justify-between">
             <h1 className="text-3xl font-bold text-stone-600 mb-2">
-              {projectInfo.title}
+              {selectedProject.title}
             </h1>
             <button
               className="text-stone-600 hover:text-stone-950"
-              onClick={onDelete}
+              onClick={deleteProject}
             >
               Delete
             </button>
           </div>
           <p className="mb-4 text-stone-400">{formattedDate}</p>
           <p className="text-stone-600 whitespace-pre-wrap">
-            {projectInfo.description}
+            {selectedProject.description}
           </p>
         </header>
-        <Tasks onAdd={onAddTask} onDelete={onDeleteTask} tasks={tasks}/>
+        <Tasks />
       </div>
     </>
   );

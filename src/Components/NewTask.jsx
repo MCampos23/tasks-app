@@ -1,6 +1,8 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { TasksContext } from "../store/tasks-context.jsx";
 
-export default function NewTask({ onAdd }) {
+export default function NewTask() {
+    const { addTask } = useContext(TasksContext)
     const [enteredTask, setEnteredTask] = useState('');
 
     function handleChange(e) {
@@ -11,7 +13,7 @@ export default function NewTask({ onAdd }) {
         if (enteredTask.trim() === ''){
           return;
         } 
-        onAdd(enteredTask);
+        addTask(enteredTask);
         setEnteredTask('');
     }
 

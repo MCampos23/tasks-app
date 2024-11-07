@@ -5,11 +5,13 @@ import { useContext } from 'react';
 import NoProjectSelected from './Components/NoProjectSelected';
 import SelectedProject from './Components/SelectedProject.jsx';
 import TasksContextProvider, { TasksContext } from './store/tasks-context.jsx';
+import Login from './Components/Login.jsx';
 
 function App() {
 
   return (
     <TasksContextProvider>
+      <Login />
       <Content />
     </TasksContextProvider>
   );
